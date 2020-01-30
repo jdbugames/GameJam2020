@@ -149,7 +149,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 desiredMove = Vector3.ProjectOnPlane(desiredMove, m_GroundContactNormal).normalized;
 
                 desiredMove.x = desiredMove.x*movementSettings.CurrentTargetSpeed;
-                desiredMove.z = desiredMove.z*movementSettings.CurrentTargetSpeed;
+                desiredMove.z = -desiredMove.z*movementSettings.CurrentTargetSpeed;
+                //desiredMove.z = desiredMove.z * movementSettings.CurrentTargetSpeed;
                 desiredMove.y = desiredMove.y*movementSettings.CurrentTargetSpeed;
                 if (m_RigidBody.velocity.sqrMagnitude <
                     (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed))
@@ -214,9 +215,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             Vector2 input = new Vector2
                 {
-                    x = CrossPlatformInputManager.GetAxis("Horizontal"),
-                    y = CrossPlatformInputManager.GetAxis("Vertical")
-                };
+                //x = CrossPlatformInputManager.GetAxis("Horizontal"),
+                //y = CrossPlatformInputManager.GetAxis("Vertical")
+                y = CrossPlatformInputManager.GetAxis("Horizontal"),
+                x = CrossPlatformInputManager.GetAxis("Vertical")
+            };
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
         }

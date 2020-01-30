@@ -25,8 +25,12 @@ public class TextInputs : MonoBehaviour
             text2.text = "/n" + "  Input name: " + inputDevice.Name;
 
             var anybutton = inputDevice.AnyButton;
+            //var anystick = 
             if(anybutton)
+            {
                 text.text = anybutton.Handle;
+            }
         }
+
     }
 }
