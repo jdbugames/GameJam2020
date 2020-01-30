@@ -149,8 +149,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 desiredMove = Vector3.ProjectOnPlane(desiredMove, m_GroundContactNormal).normalized;
 
                 desiredMove.x = desiredMove.x*movementSettings.CurrentTargetSpeed;
-                desiredMove.z = -desiredMove.z*movementSettings.CurrentTargetSpeed;
-                //desiredMove.z = desiredMove.z * movementSettings.CurrentTargetSpeed;
+                //desiredMove.z = -desiredMove.z*movementSettings.CurrentTargetSpeed;
+                desiredMove.z = desiredMove.z * movementSettings.CurrentTargetSpeed;
                 desiredMove.y = desiredMove.y*movementSettings.CurrentTargetSpeed;
                 if (m_RigidBody.velocity.sqrMagnitude <
                     (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed))

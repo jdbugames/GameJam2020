@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private int int_PlayerSpeed;
+    private GameObject obj_Wall;
 
     [SerializeField]
-    public GameObject obj_Wall;
+    private int int_Count;
 
     [SerializeField]
-    public int int_Count;
+    private Text txt_Input;
+
+    private 
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +25,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Se mueve en todo momento hacia donde mire la cámara.
-        //obj_Player.transform.position = obj_Player.transform.position + Camera.main.transform.forward * int_PlayerSpeed * Time.deltaTime;
-        //Fin
-
-        //Se mueve hacia donde mire la camara al tocar sobre la pantalla del celular,(para cardboards).
         if (Input.GetButton("Fire1"))
         {
-            transform.position = transform.position + Camera.main.transform.forward * int_PlayerSpeed * Time.deltaTime;
+            txt_Input.text = "Fire1";
+        }
+        if (Input.GetButton("Fire2"))
+        {
+            txt_Input.text = "Fire2";
+        }
+        if (Input.GetButton("ButtonA"))
+        {
+            txt_Input.text = "ButtonA";
+        }
+        if (Input.GetButton("ButtonB"))
+        {
+            txt_Input.text = "ButtonB";
+        }
+        if (Input.GetButton("ButtonC"))
+        {
+            txt_Input.text = "ButtonC";
+        }
+        if (Input.GetButton("ButtonD"))
+        {
+            txt_Input.text = "ButtonD";
         }
         if (int_Count == 4)
         {
