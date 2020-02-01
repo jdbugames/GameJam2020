@@ -1,20 +1,38 @@
 ﻿using UnityEngine.AI;
 using UnityEngine;
+using System;
 
 public class Client : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    public Transform pointDestination;
-
-
+    [SerializeField]
+    private GameObject objectDeliver;
+    [SerializeField]
+    private NavMeshAgent navMeshAgent;
+    [SerializeField]
+    private Transform pointDestination;
+    [SerializeField]
+    private Transform pointDelivery;
+    [SerializeField]
+    private bool deliveredObject = false;
 
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        //pointDestination = ManagerClient.instance.positionFinal;
+        navMeshAgent.SetDestination(pointDestination.transform.position);
+    }
 
-        //navMeshAgent.SetDestination(pointDestination.position);
+    private void Update()
+    {
+        if(transform.position == pointDestination.position)
+        {
+            DeliverObject();
+        }
+    }
 
-        navMeshAgent.SetDestination(ManagerClient.instance.positionFinal[Random.Range(0,3)].position);
+    private void DeliverObject()
+    {
+        deliveredObject = true;
+        objectDeliver.transform.parent = pointDelivery;
+        objectDeliver.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
