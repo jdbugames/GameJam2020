@@ -9,6 +9,9 @@ public class PlayerInput : MonoBehaviour
 
     internal InputPlayer controls;
 
+    private void OnDisable() => controls.Disable();
+    private void OnEnable() => controls.Enable();
+
     private void Awake()
     {
         movementPlayer = GetComponent<MovementPlayer>();
@@ -17,6 +20,5 @@ public class PlayerInput : MonoBehaviour
 
         controls.Player.Movement.performed += ctx => movementPlayer.direction = ctx.ReadValue<Vector2>();
     }
-    private void OnDisable() => controls.Disable();
-    private void OnEnable() => controls.Enable();
+
 }

@@ -20,10 +20,10 @@ public class @InputPlayer : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""82e4ad3a-e046-46dc-b0b9-7c8d621d6bf3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": ""Clamp(min=-360,max=360)"",
                     ""interactions"": """"
                 },
                 {
